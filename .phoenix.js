@@ -210,10 +210,9 @@ Window.prototype.to = function (direction, screen) {
 Key.on('left', OPTION_CONTROL, () => {
   const window = Window.focused();
   if (window) {
-    window.maximize()
     window.setSize({
-      height: window.size().height ,
-      width: window.size().width / 2
+      height: Screen.main().flippedVisibleFrame().height,
+      width: Screen.main().flippedVisibleFrame().width /2 
     })
     window.to(NW);
   }
@@ -222,10 +221,9 @@ Key.on('left', OPTION_CONTROL, () => {
 Key.on('right', OPTION_CONTROL, () => {
   const window = Window.focused();
   if (window) {
-    window.maximize()
     window.setSize({
-      height: window.size().height ,
-      width: window.size().width / 2
+      height: Screen.main().flippedVisibleFrame().height,
+      width: Screen.main().flippedVisibleFrame().width /2 
     })
     window.to(NE);
   }
@@ -234,18 +232,17 @@ Key.on('right', OPTION_CONTROL, () => {
 Key.on('return', OPTION_CONTROL, () => {
   const window = Window.focused();
   if (window) {
-    window.to(CENTRE);
     window.maximize()
+    window.to(CENTRE);
   }
 });
 
 Key.on('up', OPTION_CONTROL, () => {
   const window = Window.focused();
   if (window) {
-    window.maximize();
     window.setSize({
-      height: window.size().height /2 ,
-      width: window.size().width 
+      height: Screen.main().flippedVisibleFrame().height / 2,
+      width: Screen.main().flippedVisibleFrame().width
     })
     window.to(NW);
   }
@@ -254,10 +251,9 @@ Key.on('up', OPTION_CONTROL, () => {
 Key.on('down', OPTION_CONTROL, () => {
   const window = Window.focused();
   if (window) {
-    window.maximize();
     window.setSize({
-      height: window.size().height / 2,
-      width: window.size().width
+      height: Screen.main().flippedVisibleFrame().height / 2,
+      width: Screen.main().flippedVisibleFrame().width 
     })
     window.to(SW);
   }
